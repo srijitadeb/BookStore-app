@@ -1,3 +1,11 @@
-.space{
-    margin: 10px;
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+.active {
+  color: red;
+}
+.space {
+  margin: 10px;
 }
