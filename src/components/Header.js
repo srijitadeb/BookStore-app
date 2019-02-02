@@ -43,6 +43,7 @@ export class Header extends React.Component {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
+                exact
                 activeClassName="active"
                 to="/create"
               >
@@ -54,10 +55,11 @@ export class Header extends React.Component {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
+                exact
                 activeClassName="active"
-                to="/details"
+                to="/about"
               >
-                Details
+                About Us
               </NavLink>
             </li>
           </ul>

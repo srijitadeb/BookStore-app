@@ -24,30 +24,12 @@ import { Header } from "./components/Header";
 // import { Header } from "./components/Header";
 
 const routing = (
-  //   <Router>
-  //     <div>
-  //       <Route path="/" component={Root} />
-  //       <Route path="/create" component={Create} />
-  //       <Route path="/details" component={Detail} />
-  //     </div>
-  //   </Router>
   <Router>
     <div>
-      {/* <ul>
-        <li>
-          <Link to="/App">Home</Link>
-        </li>
-        <li>
-          <Link to="/create">Create</Link>
-        </li>
-        <li>
-          <Link to="/details">Details</Link>
-        </li>
-      </ul> */}
-      <Header />
-      <Route path="/App" component={App} />
-      <Route path="/create" component={Create} />
-      <Route path="/details" component={Detail} />
+        <Header />
+        <Route exact path="/App" component={App} />
+        <Route path="/create" component={Create} />
+        <Route path="/about" component={Detail} />
     </div>
   </Router>
 );

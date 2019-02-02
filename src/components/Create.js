@@ -1,17 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-export class Create extends React.Component {
-  constructor() {
-    super();
+export class Create extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       title: "",
       author: "",
       language: "",
-      list: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    console.log(props);
   }
+
   handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
@@ -23,20 +25,29 @@ export class Create extends React.Component {
       [name]: value,
     });
   }
-  handleSubmit() {
-    let listArray = this.state.list;
-    listArray.push(this.state);
-    console.log(listArray);
 
-    this.setState({
-      list: listArray,
-    });
+  handleSubmit(event) {
     event.preventDefault();
+   //*********passing state  */
+    this.props.history.push({
+      pathname: "/App",
+      state: {
+        title: this.state.title,
+        author: this.state.author,
+        language: this.state.language,
+      },
+    });
+    // this.setState({
+    //   title: "",
+    //   author: "",
+    //   language: "",
+    // });
   }
+
   render() {
     return (
       <div className="container">
-        <div classNameName="row">
+        <div className="row">
           <form onSubmit={this.handleSubmit}>
             <div>
               <label>
@@ -61,11 +72,7 @@ export class Create extends React.Component {
               </label>
             </div>
             <div>
-              <input
-                type="submit"
-                value="Submit"
-                onChange={this.handleChange}
-              />
+              <input type="submit" value="Submit" />
             </div>
           </form>
         </div>
@@ -73,5 +80,8 @@ export class Create extends React.Component {
     );
   }
 }
+Create.propTypes = {
+  createNewBook: PropTypes.func,
+};
 
 export default Create;
