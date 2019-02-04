@@ -30,12 +30,12 @@ export class Create extends Component {
     event.preventDefault();
    //*********passing state  */
     this.props.history.push({
-      pathname: "/App",
-      state: {
-        title: this.state.title,
-        author: this.state.author,
-        language: this.state.language,
-      },
+      pathname: "/booklist",
+    //   state: {
+    //     title: this.state.title,
+    //     author: this.state.author,
+    //     language: this.state.language,
+    //   },
     });
     // this.setState({
     //   title: "",

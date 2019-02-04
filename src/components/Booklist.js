@@ -1,45 +1,14 @@
 import React from "react";
-import data from "../data/books.json";
-import { Detail } from "./Details";
-import { hashHistory } from "react-router";
-import { browserHistory } from "react-router";
-import {
-  Route,
-  Link,
-  NavLink,
-  BrowserRouter as Router,
-  Switch,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-// const Child (match) => console.log(match) ||(
-//   <div>
-//    <h3>Id:</h3>
-//   </div>
-// );
-
-
-export class Home extends React.Component {
-  constructor() {
-    super();
-    this.routeChange = this.routeChange.bind(this);
-  }
-
-  routeChange() {
-    //browserHistory.push("/about");
-    hashHistory.push("/about");
-    // const { history } = this.props;
-
-    // console.log("path");
-    // let path = "/about";
-    // history.push(path);
-    //this.props.history.push("/");
-  }
-  Child (match){
-    console.log(match);
+export class BookList extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
   }
 
   render() {
-    console.log(this.props.books);
+    console.log(this.props);
     let bookList = this.props.books.map((book, i) => {
       return (
         <tr key={i}>
@@ -51,18 +20,19 @@ export class Home extends React.Component {
               Edit{" "}
             </button>
             <button type="button" className="btn btn-secondary">
-              {/* <Route path="/:id" component={Child} /> Detail */}
-               <Link to={`/about/${i+1}`}> Details
-            </Link> 
+              <Link
+                to={{ pathname: `/bookinfo/${i + 1}`, state: { book: book } }}
+              >
+                Details
+              </Link>
             </button>
-
-            {/* <button
+            <button
               type="button"
               className="btn btn-secondary"
               onClick={this.routeChange}
             >
-              Details
-            </button> */}
+              Details 1
+            </button>
           </td>
         </tr>
       );

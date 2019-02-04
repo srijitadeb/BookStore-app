@@ -34,7 +34,7 @@ export class Header extends React.Component {
                 className="nav-link"
                 exact
                 activeClassName="active"
-                to="/App"
+                to="/booklist"
               >
                 Home
               </NavLink>
